@@ -1,0 +1,20 @@
+type Query {
+  usersByRole(role: String!): [User]
+  users: [User]
+}
+
+type Mutation {
+  createUser(args: UserDto!): User!
+}
+
+input UserDto {
+  name: String!
+  lastName: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  lastName: String!
+  createDateTime: String!
+}

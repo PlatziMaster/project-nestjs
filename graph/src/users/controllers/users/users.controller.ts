@@ -23,6 +23,6 @@ export class UsersController {
   @Post()
   async create(@Body() user) {
     console.log(user);
-    return this.usersService.createUser(user);
+    return this.usersService.create(user);
   }
 }
