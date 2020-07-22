@@ -9,6 +9,15 @@ import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
+    GraphQLModule.forRoot({
+      debug: true,
+      playground: true,
+      typePaths: ['./src/**/*.graphql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+        outputAs: 'interface',
+      },
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -23,15 +32,7 @@ import { ProductsModule } from './products/products.module';
         migrationsDir: 'src/migration',
       },
       ssl: false,
-    }),
-    GraphQLModule.forRoot({
-      debug: true,
-      playground: true,
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/graphql.ts'),
-        outputAs: 'interface',
-      },
+      autoLoadEntities: true,
     }),
     UsersModule,
     ProductsModule

@@ -1,0 +1,20 @@
+type Query {
+  products: [Product!]!
+  orders: [Order!]!
+}
+
+type Mutation {
+  createOrder: Order!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  createDateTime: String!
+}
+
+type Order {
+  id: ID!
+  createDateTime: String!
+  products: [Product]
+}
