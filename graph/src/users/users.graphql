@@ -1,6 +1,6 @@
 type Query {
   usersByRole(role: String!): [User]
-  users: [User]
+  allUsers: [User!]!
 }
 
 type Mutation {

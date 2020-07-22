@@ -1,4 +1,6 @@
-import { PrimaryGeneratedColumn, Column, CreateDateColumn, Entity } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, CreateDateColumn, Entity, OneToMany } from 'typeorm';
+
+import { Order } from './order.entity';
 
 @Entity({ name: 'user' })
 export class User {
@@ -13,4 +15,7 @@ export class User {
 
   @Column({ type: 'varchar', length: 300 })
   lastName: string;
+
+  @OneToMany(type => Order, order => order.user)
+  orders: Order[];
 }

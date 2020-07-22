@@ -12,7 +12,7 @@ export class UsersController {
 
   @Get()
   getUsers() {
-    return this.usersService.getUsers();
+    return [];
   }
 
   // @Get()
